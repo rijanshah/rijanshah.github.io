@@ -9,13 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --dark-bg: #0f0f23;
-            --dark-card: #1a1a2e;
-            --dark-text: #e2e8f0;
-            --light-text: #94a3b8;
-            --accent: #f472b6;
+            --primary: #ff1744;
+            --primary-dark: #c41c3b;
+            --dark-bg: #0a0a0f;
+            --dark-card: #1a0f15;
+            --dark-text: #ffffff;
+            --light-text: #e81b23;
+            --accent: #ff5252;
+            --neon-red: #ff1744;
+            --neon-pink: #ff5252;
             --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
@@ -71,8 +73,9 @@
             transform: translateX(-50%);
             width: 70px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, #ff1744, #ff5252);
             border-radius: 2px;
+            box-shadow: 0 0 15px rgba(255, 23, 68, 0.8);
         }
 
         p {
@@ -93,25 +96,28 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, #ff1744, #ff5252);
             color: white;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.6), 0 4px 15px rgba(255, 23, 68, 0.3);
+            border: 1px solid rgba(255, 23, 68, 0.5);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 0 20px rgba(255, 23, 68, 0.8), 0 8px 25px rgba(255, 23, 68, 0.5), inset 0 0 10px rgba(255, 23, 68, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--dark-text);
-            border: 2px solid var(--primary);
+            border: 2px solid var(--neon-red);
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.4);
         }
 
         .btn-secondary:hover {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(255, 23, 68, 0.15);
             transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(255, 23, 68, 0.6);
         }
 
         /* Header & Navigation */
@@ -124,12 +130,15 @@
             padding: 20px 0;
             transition: var(--transition);
             backdrop-filter: blur(10px);
-            background: rgba(15, 15, 35, 0.8);
+            background: rgba(10, 10, 15, 0.9);
+            border-bottom: 1px solid rgba(255, 23, 68, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
 
         header.scrolled {
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 30px rgba(255, 23, 68, 0.3);
+            border-bottom-color: rgba(255, 23, 68, 0.4);
         }
 
         .navbar {
@@ -146,7 +155,8 @@
         }
 
         .logo span {
-            color: var(--primary);
+            color: #ff1744;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
         }
 
         .nav-links {
@@ -167,7 +177,8 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: #ff1744;
+            text-shadow: 0 0 8px rgba(255, 23, 68, 0.8);
         }
 
         .nav-links a::after {
@@ -177,8 +188,9 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary);
+            background: #ff1744;
             transition: var(--transition);
+            box-shadow: 0 0 8px rgba(255, 23, 68, 0.8);
         }
 
         .nav-links a:hover::after {
@@ -196,11 +208,12 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
 
         .hero-bg {
@@ -209,7 +222,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            background: radial-gradient(circle at top left, rgba(255, 23, 68, 0.2), transparent 24%),
+                        linear-gradient(135deg, #0a0a0f 0%, #150811 35%, #1d0710 100%);
             z-index: -2;
         }
 
@@ -227,9 +241,10 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background-color: var(--primary);
+            background-color: #ff1744;
             border-radius: 50%;
             animation: float 15s infinite linear;
+            box-shadow: 0 0 5px rgba(255, 23, 68, 0.8);
         }
 
         @keyframes float {
@@ -261,33 +276,38 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 20px;
-            line-height: 1.1;
+            line-height: 1.05;
+            text-shadow: 0 0 24px rgba(255, 23, 68, 0.22);
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: var(--light-text);
+            margin: 0 auto 40px;
+            max-width: 760px;
+            color: #f4b7c0;
         }
 
         .typing-text {
-            color: var(--primary);
-            border-right: 2px solid var(--primary);
+            color: #ff1744;
+            border-right: 2px solid #ff1744;
             padding-right: 5px;
             animation: blink 0.7s infinite;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
         }
 
         @keyframes blink {
 
             0%,
             100% {
-                border-color: var(--primary);
+                border-color: #ff1744;
+                text-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
             }
 
             50% {
                 border-color: transparent;
+                text-shadow: 0 0 5px rgba(255, 23, 68, 0.4);
             }
         }
 
@@ -309,8 +329,8 @@
             height: 300px;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid var(--dark-card);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid #ff1744;
+            box-shadow: 0 0 30px rgba(255, 23, 68, 0.6), 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .profile-img img {
@@ -342,14 +362,17 @@
             background: var(--dark-card);
             border-radius: 4px;
             overflow: hidden;
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         .skill-progress {
             height: 100%;
             border-radius: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            background: linear-gradient(90deg, #ff1744, #ff5252);
             width: 0;
             transition: width 1.5s ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
         }
 
         /* Services Section */
@@ -360,30 +383,34 @@
         }
 
         .service-card {
-            background: var(--dark-card);
-            border-radius: 15px;
+            background: linear-gradient(180deg, rgba(26, 15, 21, 0.96), rgba(18, 7, 14, 0.96));
+            border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
             transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 23, 68, 0.1);
+            border: 1px solid rgba(255, 23, 68, 0.18);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 40px rgba(255, 23, 68, 0.45), inset 0 0 30px rgba(255, 82, 82, 0.08);
+            border-color: rgba(255, 23, 68, 0.55);
         }
 
         .service-icon {
             font-size: 3rem;
-            color: var(--primary);
+            color: #ff1744;
             margin-bottom: 25px;
             display: inline-block;
             transition: var(--transition);
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
         }
 
         .service-card:hover .service-icon {
             transform: scale(1.2);
-            color: var(--accent);
+            color: #ff5252;
+            text-shadow: 0 0 20px rgba(255, 82, 82, 0.9), 0 0 30px rgba(255, 23, 68, 0.7);
         }
 
         .service-card h3 {
@@ -406,11 +433,14 @@
             background: var(--dark-card);
             cursor: pointer;
             transition: var(--transition);
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
 
         .portfolio-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 30px rgba(255, 23, 68, 0.5), inset 0 0 20px rgba(255, 23, 68, 0.1);
+            border-color: rgba(255, 23, 68, 0.6);
         }
 
         .portfolio-img {
@@ -430,7 +460,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 15, 35, 0.8);
+            background: rgba(10, 10, 15, 0.85);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -439,6 +469,7 @@
             transition: var(--transition);
             padding: 20px;
             text-align: center;
+            border: 1px solid rgba(255, 23, 68, 0.5);
         }
 
         .portfolio-item:hover .portfolio-overlay {
@@ -494,14 +525,18 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            color: var(--primary);
+            color: #ff1744;
             transition: var(--transition);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.4);
         }
 
         .contact-item:hover .contact-icon {
-            background: var(--primary);
+            background: #ff1744;
             color: white;
             transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+            border-color: #ff1744;
         }
 
         .contact-details h3 {
@@ -513,7 +548,8 @@
             background: var(--dark-card);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 23, 68, 0.2);
+            border: 1px solid rgba(255, 23, 68, 0.2);
         }
 
         .form-group {
@@ -533,8 +569,8 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+            border-color: #ff1744;
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.5), inset 0 0 5px rgba(255, 23, 68, 0.1);
         }
 
         textarea.form-control {
@@ -569,6 +605,8 @@
         footer {
             background: var(--dark-card);
             padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 23, 68, 0.2);
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .footer-content {
@@ -596,12 +634,16 @@
             font-size: 1.2rem;
             transition: var(--transition);
             text-decoration: none;
+            border: 1px solid rgba(255, 23, 68, 0.2);
+            box-shadow: 0 0 10px rgba(255, 23, 68, 0.2);
         }
 
         .social-link:hover {
-            background: var(--primary);
+            background: #ff1744;
             color: white;
             transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+            border-color: #ff1744;
         }
 
         .copyright {
@@ -617,7 +659,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 15, 35, 0.9);
+            background: rgba(10, 10, 15, 0.95);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -642,6 +684,8 @@
             position: relative;
             transform: scale(0.8);
             transition: var(--transition);
+            border: 1px solid rgba(255, 23, 68, 0.3);
+            box-shadow: 0 0 40px rgba(255, 23, 68, 0.4);
         }
 
         .modal.active .modal-content {
@@ -661,7 +705,9 @@
         }
 
         .close-modal:hover {
-            color: var(--primary);
+            color: #ff1744;
+            text-shadow: 0 0 10px rgba(255, 23, 68, 0.8);
+            transform: rotate(90deg);
         }
 
         .video-container {
@@ -836,11 +882,10 @@
         <div class="container">
             <div class="hero-content">
                 <h1>I am Rijan Shah – <span class="typing-text" id="typing-text"></span></h1>
-                <p>Creating engaging visual content that tells your story and captivates your audience across all
-                    digital platforms.</p>
+                <p>Transforming ideas into cinematic videos and bold visuals that grow your audience, boost your brand, and stop the scroll.</p>
                 <div class="hero-btns">
-                    <a href="#contact" class="btn btn-primary">Work With Me</a>
-                    <a href="#portfolio" class="btn btn-secondary">View Portfolio</a>
+                    <a href="#contact" class="btn btn-primary">Start a Project</a>
+                    <a href="#portfolio" class="btn btn-secondary">Explore Work</a>
                 </div>
             </div>
         </div>
@@ -855,9 +900,7 @@
                     <img src="images/pp.png" alt="Rijan Shah">
                 </div>
                 <div class="about-text">
-                    <p>I am Rijan Shah, a professional video editor & designer. I create engaging content for YouTube,
-                        TikTok, Instagram, and more. With a keen eye for detail and a passion for storytelling, I
-                        transform raw footage into compelling visual narratives that resonate with audiences.</p>
+                    <p>I am Rijan Shah, a professional video editor and designer helping creators, brands, and businesses stand out online. I craft high-energy videos, polished motion graphics, and eye-catching visuals that capture attention, increase engagement, and make every project feel premium.</p>
                     <div class="skills">
                         <div class="skill">
                             <div class="skill-info">
@@ -871,19 +914,19 @@
                         <div class="skill">
                             <div class="skill-info">
                                 <span>After Effects</span>
-                                <span>55%</span>
+                                <span>75%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="55"></div>
+                                <div class="skill-progress" data-width="75"></div>
                             </div>
                         </div>
                         <div class="skill">
                             <div class="skill-info">
                                 <span>Photoshop</span>
-                                <span>60%</span>
+                                <span>45%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-width="60"></div>
+                                <div class="skill-progress" data-width="45"></div>
                             </div>
                         </div>
                     </div>
@@ -902,24 +945,21 @@
                         <i class="fas fa-film"></i>
                     </div>
                     <h3>Video Editing</h3>
-                    <p>Professional editing for Reels, Shorts, YouTube videos with seamless transitions, color grading,
-                        and engaging pacing.</p>
+                    <p>High-impact edits for Reels, Shorts, and YouTube that keep viewers watching with sharp pacing, bold cuts, and cinematic polish.</p>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-star"></i>
                     </div>
-                    <h3>Motion Graphics / Effects</h3>
-                    <p>Eye-catching animations, kinetic typography, and visual effects that elevate your content and
-                        brand identity.</p>
+                    <h3>Motion Graphics & Effects</h3>
+                    <p>Modern animations, kinetic typography, and visual effects that give your content a premium, attention-grabbing edge.</p>
                 </div>
                 <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h3>Photo / Poster Design</h3>
-                    <p>Creative Photoshop edits, social media graphics, and promotional materials that capture attention
-                        and convey your message.</p>
+                    <h3>Photo & Poster Design</h3>
+                    <p>Striking Photoshop visuals, thumbnails, and promo graphics that stop the scroll and elevate your social presence.</p>
                 </div>
             </div>
         </div>
@@ -1008,12 +1048,12 @@
             <div class="footer-content">
                 <a href="#" class="logo">Rijan Shah<span>.</span></a>
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/rijanshahofficial" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/rijanshah7" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@TheRijanShah" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="https://github.com/rijanshah" class="social-link"><i class="fab fa-github"></i></a>
                 </div>
-                <p class="copyright">© 2023 Rijan Shah. All Rights Reserved.</p>
+                <p class="copyright">© 2026 Rijan Shah. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -1038,17 +1078,17 @@
         const portfolioItems = [
             {
                 id: 1,
-                title: "Simple Reel edit",
-                description: "Simple reel editing for every uses.",
-                thumbnail: "https://img.youtube.com/vi/dYCInk6BHgw/maxresdefault.jpg",
-                videoId: "dYCInk6BHgw"
+                title: "Shorts edit",
+                description: "Shorts reel editing",
+                thumbnail: "https://img.youtube.com/vi/euRvzedzJjs/maxresdefault.jpg",
+                videoId: "euRvzedzJjs"
             },
             {
                 id: 2,
-                title: "High Quality Reel Edit",
-                description: "High quality reel editing",
-                thumbnail: "https://img.youtube.com/vi/hSnw80YU6zI/maxresdefault.jpg",
-                videoId: "hSnw80YU6zI"
+                title: "Faceless Edit",
+                description: "High quality faceless editing",
+                thumbnail: "https://img.youtube.com/vi/a8w5CE1KsLU/maxresdefault.jpg",
+                videoId: "a8w5CE1KsLU"
             },
             {
                 id: 3,
